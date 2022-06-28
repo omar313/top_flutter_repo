@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$GitModel {
   String get userName => throw _privateConstructorUsedError;
   String get repoName => throw _privateConstructorUsedError;
+  String get userImageUrl => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get lastUpdateTime => throw _privateConstructorUsedError;
   String get updateTimeShortV => throw _privateConstructorUsedError;
@@ -34,6 +35,7 @@ abstract class $GitModelCopyWith<$Res> {
   $Res call(
       {String userName,
       String repoName,
+      String userImageUrl,
       String description,
       String lastUpdateTime,
       String updateTimeShortV});
@@ -51,6 +53,7 @@ class _$GitModelCopyWithImpl<$Res> implements $GitModelCopyWith<$Res> {
   $Res call({
     Object? userName = freezed,
     Object? repoName = freezed,
+    Object? userImageUrl = freezed,
     Object? description = freezed,
     Object? lastUpdateTime = freezed,
     Object? updateTimeShortV = freezed,
@@ -63,6 +66,10 @@ class _$GitModelCopyWithImpl<$Res> implements $GitModelCopyWith<$Res> {
       repoName: repoName == freezed
           ? _value.repoName
           : repoName // ignore: cast_nullable_to_non_nullable
+              as String,
+      userImageUrl: userImageUrl == freezed
+          ? _value.userImageUrl
+          : userImageUrl // ignore: cast_nullable_to_non_nullable
               as String,
       description: description == freezed
           ? _value.description
@@ -89,6 +96,7 @@ abstract class _$$_GitModelCopyWith<$Res> implements $GitModelCopyWith<$Res> {
   $Res call(
       {String userName,
       String repoName,
+      String userImageUrl,
       String description,
       String lastUpdateTime,
       String updateTimeShortV});
@@ -108,6 +116,7 @@ class __$$_GitModelCopyWithImpl<$Res> extends _$GitModelCopyWithImpl<$Res>
   $Res call({
     Object? userName = freezed,
     Object? repoName = freezed,
+    Object? userImageUrl = freezed,
     Object? description = freezed,
     Object? lastUpdateTime = freezed,
     Object? updateTimeShortV = freezed,
@@ -120,6 +129,10 @@ class __$$_GitModelCopyWithImpl<$Res> extends _$GitModelCopyWithImpl<$Res>
       repoName: repoName == freezed
           ? _value.repoName
           : repoName // ignore: cast_nullable_to_non_nullable
+              as String,
+      userImageUrl: userImageUrl == freezed
+          ? _value.userImageUrl
+          : userImageUrl // ignore: cast_nullable_to_non_nullable
               as String,
       description: description == freezed
           ? _value.description
@@ -143,6 +156,7 @@ class _$_GitModel implements _GitModel {
   const _$_GitModel(
       {required this.userName,
       required this.repoName,
+      required this.userImageUrl,
       required this.description,
       required this.lastUpdateTime,
       required this.updateTimeShortV});
@@ -152,6 +166,8 @@ class _$_GitModel implements _GitModel {
   @override
   final String repoName;
   @override
+  final String userImageUrl;
+  @override
   final String description;
   @override
   final String lastUpdateTime;
@@ -160,7 +176,7 @@ class _$_GitModel implements _GitModel {
 
   @override
   String toString() {
-    return 'GitModel(userName: $userName, repoName: $repoName, description: $description, lastUpdateTime: $lastUpdateTime, updateTimeShortV: $updateTimeShortV)';
+    return 'GitModel(userName: $userName, repoName: $repoName, userImageUrl: $userImageUrl, description: $description, lastUpdateTime: $lastUpdateTime, updateTimeShortV: $updateTimeShortV)';
   }
 
   @override
@@ -170,6 +186,8 @@ class _$_GitModel implements _GitModel {
             other is _$_GitModel &&
             const DeepCollectionEquality().equals(other.userName, userName) &&
             const DeepCollectionEquality().equals(other.repoName, repoName) &&
+            const DeepCollectionEquality()
+                .equals(other.userImageUrl, userImageUrl) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
             const DeepCollectionEquality()
@@ -183,6 +201,7 @@ class _$_GitModel implements _GitModel {
       runtimeType,
       const DeepCollectionEquality().hash(userName),
       const DeepCollectionEquality().hash(repoName),
+      const DeepCollectionEquality().hash(userImageUrl),
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(lastUpdateTime),
       const DeepCollectionEquality().hash(updateTimeShortV));
@@ -197,6 +216,7 @@ abstract class _GitModel implements GitModel {
   const factory _GitModel(
       {required final String userName,
       required final String repoName,
+      required final String userImageUrl,
       required final String description,
       required final String lastUpdateTime,
       required final String updateTimeShortV}) = _$_GitModel;
@@ -205,6 +225,8 @@ abstract class _GitModel implements GitModel {
   String get userName => throw _privateConstructorUsedError;
   @override
   String get repoName => throw _privateConstructorUsedError;
+  @override
+  String get userImageUrl => throw _privateConstructorUsedError;
   @override
   String get description => throw _privateConstructorUsedError;
   @override

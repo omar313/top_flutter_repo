@@ -6,8 +6,9 @@ class GitModel with _$GitModel {
   const factory GitModel({
     required String userName,
     required String repoName,
+    required String userImageUrl,
     required String description,
     required String lastUpdateTime,
-    required String updateTimeShortV
+    required String updateTimeShortV,
 }) = _GitModel;
 }
