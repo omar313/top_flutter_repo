@@ -15,18 +15,24 @@ part 'git_repo_bloc.freezed.dart';
 
 class GitRepoBloc extends Bloc<GitRepoEvent, GitRepoState> {
   final IGitRepoModelRepository repository;
+  late GitRepoFilterEnum currentFilterEnum;
 
-  GitRepoBloc(this.repository) : super(const GitRepoState.initial()) {
+  GitRepoBloc({required this.repository})
+      : super(const GitRepoState.loadingProgress()) {
     on<GitRepoEvent>((event, emit) async {
-     await event.when(changeFilter: (filterEnum) async {
-        emit(const GitRepoState.loadInProgress());
+      await event.when(loadFilterData: (filterEnum) async {
+        currentFilterEnum = filterEnum;
+        emit(const GitRepoState.loadingProgress());
         final result =
             await repository.getGitRepoModelData(filterEnum: filterEnum);
         result.fold((failure) => emit(GitRepoState.failure(failure)),
             (r) => emit(GitRepoState.success(filterEnum, r)));
       }, getInitialData: () {
         final initialFilter = repository.getCurrentFilterState();
-        add(GitRepoEvent.changeFilter(initialFilter));
+        currentFilterEnum = initialFilter;
+        add(GitRepoEvent.loadFilterData(initialFilter));
+      }, retry: () {
+        add(GitRepoEvent.loadFilterData(currentFilterEnum));
       });
     });
   }

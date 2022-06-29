@@ -10,5 +10,6 @@ class GitRepoModel with _$GitRepoModel {
      String? description,
      String? lastUpdateTime,
      String? updateTimeShortV,
+     int? totalStars
 }) = _GitRepoModel;
 }

@@ -33,8 +33,6 @@ extension GitRepoFilterEnumExtension on GitRepoFilterEnum {
         return 'none-timestamp-key';
     }
   }
-
-  static GitRepoFilterEnum getEnumFromIndex(int index) => GitRepoFilterEnum.values[index];
 }
 
  GitRepoFilterEnum getEnumFromIndex(int index) => GitRepoFilterEnum.values[index];

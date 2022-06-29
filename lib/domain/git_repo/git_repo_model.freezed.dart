@@ -22,6 +22,7 @@ mixin _$GitRepoModel {
   String? get description => throw _privateConstructorUsedError;
   String? get lastUpdateTime => throw _privateConstructorUsedError;
   String? get updateTimeShortV => throw _privateConstructorUsedError;
+  int? get totalStars => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $GitRepoModelCopyWith<GitRepoModel> get copyWith =>
@@ -39,7 +40,8 @@ abstract class $GitRepoModelCopyWith<$Res> {
       String? userImageUrl,
       String? description,
       String? lastUpdateTime,
-      String? updateTimeShortV});
+      String? updateTimeShortV,
+      int? totalStars});
 }
 
 /// @nodoc
@@ -58,6 +60,7 @@ class _$GitRepoModelCopyWithImpl<$Res> implements $GitRepoModelCopyWith<$Res> {
     Object? description = freezed,
     Object? lastUpdateTime = freezed,
     Object? updateTimeShortV = freezed,
+    Object? totalStars = freezed,
   }) {
     return _then(_value.copyWith(
       userName: userName == freezed
@@ -84,6 +87,10 @@ class _$GitRepoModelCopyWithImpl<$Res> implements $GitRepoModelCopyWith<$Res> {
           ? _value.updateTimeShortV
           : updateTimeShortV // ignore: cast_nullable_to_non_nullable
               as String?,
+      totalStars: totalStars == freezed
+          ? _value.totalStars
+          : totalStars // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -101,7 +108,8 @@ abstract class _$$_GitRepoModelCopyWith<$Res>
       String? userImageUrl,
       String? description,
       String? lastUpdateTime,
-      String? updateTimeShortV});
+      String? updateTimeShortV,
+      int? totalStars});
 }
 
 /// @nodoc
@@ -123,6 +131,7 @@ class __$$_GitRepoModelCopyWithImpl<$Res>
     Object? description = freezed,
     Object? lastUpdateTime = freezed,
     Object? updateTimeShortV = freezed,
+    Object? totalStars = freezed,
   }) {
     return _then(_$_GitRepoModel(
       userName: userName == freezed
@@ -149,6 +158,10 @@ class __$$_GitRepoModelCopyWithImpl<$Res>
           ? _value.updateTimeShortV
           : updateTimeShortV // ignore: cast_nullable_to_non_nullable
               as String?,
+      totalStars: totalStars == freezed
+          ? _value.totalStars
+          : totalStars // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -162,7 +175,8 @@ class _$_GitRepoModel implements _GitRepoModel {
       this.userImageUrl,
       this.description,
       this.lastUpdateTime,
-      this.updateTimeShortV});
+      this.updateTimeShortV,
+      this.totalStars});
 
   @override
   final String? userName;
@@ -176,10 +190,12 @@ class _$_GitRepoModel implements _GitRepoModel {
   final String? lastUpdateTime;
   @override
   final String? updateTimeShortV;
+  @override
+  final int? totalStars;
 
   @override
   String toString() {
-    return 'GitRepoModel(userName: $userName, repoName: $repoName, userImageUrl: $userImageUrl, description: $description, lastUpdateTime: $lastUpdateTime, updateTimeShortV: $updateTimeShortV)';
+    return 'GitRepoModel(userName: $userName, repoName: $repoName, userImageUrl: $userImageUrl, description: $description, lastUpdateTime: $lastUpdateTime, updateTimeShortV: $updateTimeShortV, totalStars: $totalStars)';
   }
 
   @override
@@ -196,7 +212,9 @@ class _$_GitRepoModel implements _GitRepoModel {
             const DeepCollectionEquality()
                 .equals(other.lastUpdateTime, lastUpdateTime) &&
             const DeepCollectionEquality()
-                .equals(other.updateTimeShortV, updateTimeShortV));
+                .equals(other.updateTimeShortV, updateTimeShortV) &&
+            const DeepCollectionEquality()
+                .equals(other.totalStars, totalStars));
   }
 
   @override
@@ -207,7 +225,8 @@ class _$_GitRepoModel implements _GitRepoModel {
       const DeepCollectionEquality().hash(userImageUrl),
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(lastUpdateTime),
-      const DeepCollectionEquality().hash(updateTimeShortV));
+      const DeepCollectionEquality().hash(updateTimeShortV),
+      const DeepCollectionEquality().hash(totalStars));
 
   @JsonKey(ignore: true)
   @override
@@ -222,7 +241,8 @@ abstract class _GitRepoModel implements GitRepoModel {
       final String? userImageUrl,
       final String? description,
       final String? lastUpdateTime,
-      final String? updateTimeShortV}) = _$_GitRepoModel;
+      final String? updateTimeShortV,
+      final int? totalStars}) = _$_GitRepoModel;
 
   @override
   String? get userName => throw _privateConstructorUsedError;
@@ -236,6 +256,8 @@ abstract class _GitRepoModel implements GitRepoModel {
   String? get lastUpdateTime => throw _privateConstructorUsedError;
   @override
   String? get updateTimeShortV => throw _privateConstructorUsedError;
+  @override
+  int? get totalStars => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_GitRepoModelCopyWith<_$_GitRepoModel> get copyWith =>

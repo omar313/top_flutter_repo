@@ -18,39 +18,45 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$GitRepoEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(GitRepoFilterEnum filterEnum) changeFilter,
+    required TResult Function(GitRepoFilterEnum filterEnum) loadFilterData,
     required TResult Function() getInitialData,
+    required TResult Function() retry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(GitRepoFilterEnum filterEnum)? changeFilter,
+    TResult Function(GitRepoFilterEnum filterEnum)? loadFilterData,
     TResult Function()? getInitialData,
+    TResult Function()? retry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(GitRepoFilterEnum filterEnum)? changeFilter,
+    TResult Function(GitRepoFilterEnum filterEnum)? loadFilterData,
     TResult Function()? getInitialData,
+    TResult Function()? retry,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChangeFilter value) changeFilter,
+    required TResult Function(LoadFilter value) loadFilterData,
     required TResult Function(GetInitialData value) getInitialData,
+    required TResult Function(Retry value) retry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ChangeFilter value)? changeFilter,
+    TResult Function(LoadFilter value)? loadFilterData,
     TResult Function(GetInitialData value)? getInitialData,
+    TResult Function(Retry value)? retry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeFilter value)? changeFilter,
+    TResult Function(LoadFilter value)? loadFilterData,
     TResult Function(GetInitialData value)? getInitialData,
+    TResult Function(Retry value)? retry,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -73,29 +79,28 @@ class _$GitRepoEventCopyWithImpl<$Res> implements $GitRepoEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$ChangeFilterCopyWith<$Res> {
-  factory _$$ChangeFilterCopyWith(
-          _$ChangeFilter value, $Res Function(_$ChangeFilter) then) =
-      __$$ChangeFilterCopyWithImpl<$Res>;
+abstract class _$$LoadFilterCopyWith<$Res> {
+  factory _$$LoadFilterCopyWith(
+          _$LoadFilter value, $Res Function(_$LoadFilter) then) =
+      __$$LoadFilterCopyWithImpl<$Res>;
   $Res call({GitRepoFilterEnum filterEnum});
 }
 
 /// @nodoc
-class __$$ChangeFilterCopyWithImpl<$Res>
-    extends _$GitRepoEventCopyWithImpl<$Res>
-    implements _$$ChangeFilterCopyWith<$Res> {
-  __$$ChangeFilterCopyWithImpl(
-      _$ChangeFilter _value, $Res Function(_$ChangeFilter) _then)
-      : super(_value, (v) => _then(v as _$ChangeFilter));
+class __$$LoadFilterCopyWithImpl<$Res> extends _$GitRepoEventCopyWithImpl<$Res>
+    implements _$$LoadFilterCopyWith<$Res> {
+  __$$LoadFilterCopyWithImpl(
+      _$LoadFilter _value, $Res Function(_$LoadFilter) _then)
+      : super(_value, (v) => _then(v as _$LoadFilter));
 
   @override
-  _$ChangeFilter get _value => super._value as _$ChangeFilter;
+  _$LoadFilter get _value => super._value as _$LoadFilter;
 
   @override
   $Res call({
     Object? filterEnum = freezed,
   }) {
-    return _then(_$ChangeFilter(
+    return _then(_$LoadFilter(
       filterEnum == freezed
           ? _value.filterEnum
           : filterEnum // ignore: cast_nullable_to_non_nullable
@@ -106,22 +111,22 @@ class __$$ChangeFilterCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChangeFilter implements ChangeFilter {
-  const _$ChangeFilter(this.filterEnum);
+class _$LoadFilter implements LoadFilter {
+  const _$LoadFilter(this.filterEnum);
 
   @override
   final GitRepoFilterEnum filterEnum;
 
   @override
   String toString() {
-    return 'GitRepoEvent.changeFilter(filterEnum: $filterEnum)';
+    return 'GitRepoEvent.loadFilterData(filterEnum: $filterEnum)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChangeFilter &&
+            other is _$LoadFilter &&
             const DeepCollectionEquality()
                 .equals(other.filterEnum, filterEnum));
   }
@@ -132,36 +137,39 @@ class _$ChangeFilter implements ChangeFilter {
 
   @JsonKey(ignore: true)
   @override
-  _$$ChangeFilterCopyWith<_$ChangeFilter> get copyWith =>
-      __$$ChangeFilterCopyWithImpl<_$ChangeFilter>(this, _$identity);
+  _$$LoadFilterCopyWith<_$LoadFilter> get copyWith =>
+      __$$LoadFilterCopyWithImpl<_$LoadFilter>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(GitRepoFilterEnum filterEnum) changeFilter,
+    required TResult Function(GitRepoFilterEnum filterEnum) loadFilterData,
     required TResult Function() getInitialData,
+    required TResult Function() retry,
   }) {
-    return changeFilter(filterEnum);
+    return loadFilterData(filterEnum);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(GitRepoFilterEnum filterEnum)? changeFilter,
+    TResult Function(GitRepoFilterEnum filterEnum)? loadFilterData,
     TResult Function()? getInitialData,
+    TResult Function()? retry,
   }) {
-    return changeFilter?.call(filterEnum);
+    return loadFilterData?.call(filterEnum);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(GitRepoFilterEnum filterEnum)? changeFilter,
+    TResult Function(GitRepoFilterEnum filterEnum)? loadFilterData,
     TResult Function()? getInitialData,
+    TResult Function()? retry,
     required TResult orElse(),
   }) {
-    if (changeFilter != null) {
-      return changeFilter(filterEnum);
+    if (loadFilterData != null) {
+      return loadFilterData(filterEnum);
     }
     return orElse();
   }
@@ -169,42 +177,44 @@ class _$ChangeFilter implements ChangeFilter {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChangeFilter value) changeFilter,
+    required TResult Function(LoadFilter value) loadFilterData,
     required TResult Function(GetInitialData value) getInitialData,
+    required TResult Function(Retry value) retry,
   }) {
-    return changeFilter(this);
+    return loadFilterData(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ChangeFilter value)? changeFilter,
+    TResult Function(LoadFilter value)? loadFilterData,
     TResult Function(GetInitialData value)? getInitialData,
+    TResult Function(Retry value)? retry,
   }) {
-    return changeFilter?.call(this);
+    return loadFilterData?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeFilter value)? changeFilter,
+    TResult Function(LoadFilter value)? loadFilterData,
     TResult Function(GetInitialData value)? getInitialData,
+    TResult Function(Retry value)? retry,
     required TResult orElse(),
   }) {
-    if (changeFilter != null) {
-      return changeFilter(this);
+    if (loadFilterData != null) {
+      return loadFilterData(this);
     }
     return orElse();
   }
 }
 
-abstract class ChangeFilter implements GitRepoEvent {
-  const factory ChangeFilter(final GitRepoFilterEnum filterEnum) =
-      _$ChangeFilter;
+abstract class LoadFilter implements GitRepoEvent {
+  const factory LoadFilter(final GitRepoFilterEnum filterEnum) = _$LoadFilter;
 
   GitRepoFilterEnum get filterEnum => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$$ChangeFilterCopyWith<_$ChangeFilter> get copyWith =>
+  _$$LoadFilterCopyWith<_$LoadFilter> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -249,8 +259,9 @@ class _$GetInitialData implements GetInitialData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(GitRepoFilterEnum filterEnum) changeFilter,
+    required TResult Function(GitRepoFilterEnum filterEnum) loadFilterData,
     required TResult Function() getInitialData,
+    required TResult Function() retry,
   }) {
     return getInitialData();
   }
@@ -258,8 +269,9 @@ class _$GetInitialData implements GetInitialData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(GitRepoFilterEnum filterEnum)? changeFilter,
+    TResult Function(GitRepoFilterEnum filterEnum)? loadFilterData,
     TResult Function()? getInitialData,
+    TResult Function()? retry,
   }) {
     return getInitialData?.call();
   }
@@ -267,8 +279,9 @@ class _$GetInitialData implements GetInitialData {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(GitRepoFilterEnum filterEnum)? changeFilter,
+    TResult Function(GitRepoFilterEnum filterEnum)? loadFilterData,
     TResult Function()? getInitialData,
+    TResult Function()? retry,
     required TResult orElse(),
   }) {
     if (getInitialData != null) {
@@ -280,8 +293,9 @@ class _$GetInitialData implements GetInitialData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ChangeFilter value) changeFilter,
+    required TResult Function(LoadFilter value) loadFilterData,
     required TResult Function(GetInitialData value) getInitialData,
+    required TResult Function(Retry value) retry,
   }) {
     return getInitialData(this);
   }
@@ -289,8 +303,9 @@ class _$GetInitialData implements GetInitialData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ChangeFilter value)? changeFilter,
+    TResult Function(LoadFilter value)? loadFilterData,
     TResult Function(GetInitialData value)? getInitialData,
+    TResult Function(Retry value)? retry,
   }) {
     return getInitialData?.call(this);
   }
@@ -298,8 +313,9 @@ class _$GetInitialData implements GetInitialData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeFilter value)? changeFilter,
+    TResult Function(LoadFilter value)? loadFilterData,
     TResult Function(GetInitialData value)? getInitialData,
+    TResult Function(Retry value)? retry,
     required TResult orElse(),
   }) {
     if (getInitialData != null) {
@@ -314,11 +330,118 @@ abstract class GetInitialData implements GitRepoEvent {
 }
 
 /// @nodoc
+abstract class _$$RetryCopyWith<$Res> {
+  factory _$$RetryCopyWith(_$Retry value, $Res Function(_$Retry) then) =
+      __$$RetryCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RetryCopyWithImpl<$Res> extends _$GitRepoEventCopyWithImpl<$Res>
+    implements _$$RetryCopyWith<$Res> {
+  __$$RetryCopyWithImpl(_$Retry _value, $Res Function(_$Retry) _then)
+      : super(_value, (v) => _then(v as _$Retry));
+
+  @override
+  _$Retry get _value => super._value as _$Retry;
+}
+
+/// @nodoc
+
+class _$Retry implements Retry {
+  const _$Retry();
+
+  @override
+  String toString() {
+    return 'GitRepoEvent.retry()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$Retry);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(GitRepoFilterEnum filterEnum) loadFilterData,
+    required TResult Function() getInitialData,
+    required TResult Function() retry,
+  }) {
+    return retry();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(GitRepoFilterEnum filterEnum)? loadFilterData,
+    TResult Function()? getInitialData,
+    TResult Function()? retry,
+  }) {
+    return retry?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(GitRepoFilterEnum filterEnum)? loadFilterData,
+    TResult Function()? getInitialData,
+    TResult Function()? retry,
+    required TResult orElse(),
+  }) {
+    if (retry != null) {
+      return retry();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadFilter value) loadFilterData,
+    required TResult Function(GetInitialData value) getInitialData,
+    required TResult Function(Retry value) retry,
+  }) {
+    return retry(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LoadFilter value)? loadFilterData,
+    TResult Function(GetInitialData value)? getInitialData,
+    TResult Function(Retry value)? retry,
+  }) {
+    return retry?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadFilter value)? loadFilterData,
+    TResult Function(GetInitialData value)? getInitialData,
+    TResult Function(Retry value)? retry,
+    required TResult orElse(),
+  }) {
+    if (retry != null) {
+      return retry(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Retry implements GitRepoEvent {
+  const factory Retry() = _$Retry;
+}
+
+/// @nodoc
 mixin _$GitRepoState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loadInProgress,
+    required TResult Function() loadingProgress,
     required TResult Function(ApiDataFailure failure) failure,
     required TResult Function(GitRepoFilterEnum currentFilterState,
             List<GitRepoModel> gitRepoModels)
@@ -327,8 +450,7 @@ mixin _$GitRepoState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
+    TResult Function()? loadingProgress,
     TResult Function(ApiDataFailure failure)? failure,
     TResult Function(GitRepoFilterEnum currentFilterState,
             List<GitRepoModel> gitRepoModels)?
@@ -337,8 +459,7 @@ mixin _$GitRepoState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
+    TResult Function()? loadingProgress,
     TResult Function(ApiDataFailure failure)? failure,
     TResult Function(GitRepoFilterEnum currentFilterState,
             List<GitRepoModel> gitRepoModels)?
@@ -348,24 +469,21 @@ mixin _$GitRepoState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(LoadInProgress value) loadInProgress,
+    required TResult Function(LoadingProgress value) loadingProgress,
     required TResult Function(Failure value) failure,
     required TResult Function(Success value) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(LoadInProgress value)? loadInProgress,
+    TResult Function(LoadingProgress value)? loadingProgress,
     TResult Function(Failure value)? failure,
     TResult Function(Success value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(LoadInProgress value)? loadInProgress,
+    TResult Function(LoadingProgress value)? loadingProgress,
     TResult Function(Failure value)? failure,
     TResult Function(Success value)? success,
     required TResult orElse(),
@@ -390,158 +508,38 @@ class _$GitRepoStateCopyWithImpl<$Res> implements $GitRepoStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$InitialCopyWith<$Res> {
-  factory _$$InitialCopyWith(_$Initial value, $Res Function(_$Initial) then) =
-      __$$InitialCopyWithImpl<$Res>;
+abstract class _$$LoadingProgressCopyWith<$Res> {
+  factory _$$LoadingProgressCopyWith(
+          _$LoadingProgress value, $Res Function(_$LoadingProgress) then) =
+      __$$LoadingProgressCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialCopyWithImpl<$Res> extends _$GitRepoStateCopyWithImpl<$Res>
-    implements _$$InitialCopyWith<$Res> {
-  __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
-      : super(_value, (v) => _then(v as _$Initial));
-
-  @override
-  _$Initial get _value => super._value as _$Initial;
-}
-
-/// @nodoc
-
-class _$Initial implements Initial {
-  const _$Initial();
-
-  @override
-  String toString() {
-    return 'GitRepoState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loadInProgress,
-    required TResult Function(ApiDataFailure failure) failure,
-    required TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)
-        success,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
-    TResult Function(ApiDataFailure failure)? failure,
-    TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)?
-        success,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
-    TResult Function(ApiDataFailure failure)? failure,
-    TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)?
-        success,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(LoadInProgress value) loadInProgress,
-    required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(LoadInProgress value)? loadInProgress,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(LoadInProgress value)? loadInProgress,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Initial implements GitRepoState {
-  const factory Initial() = _$Initial;
-}
-
-/// @nodoc
-abstract class _$$LoadInProgressCopyWith<$Res> {
-  factory _$$LoadInProgressCopyWith(
-          _$LoadInProgress value, $Res Function(_$LoadInProgress) then) =
-      __$$LoadInProgressCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadInProgressCopyWithImpl<$Res>
+class __$$LoadingProgressCopyWithImpl<$Res>
     extends _$GitRepoStateCopyWithImpl<$Res>
-    implements _$$LoadInProgressCopyWith<$Res> {
-  __$$LoadInProgressCopyWithImpl(
-      _$LoadInProgress _value, $Res Function(_$LoadInProgress) _then)
-      : super(_value, (v) => _then(v as _$LoadInProgress));
+    implements _$$LoadingProgressCopyWith<$Res> {
+  __$$LoadingProgressCopyWithImpl(
+      _$LoadingProgress _value, $Res Function(_$LoadingProgress) _then)
+      : super(_value, (v) => _then(v as _$LoadingProgress));
 
   @override
-  _$LoadInProgress get _value => super._value as _$LoadInProgress;
+  _$LoadingProgress get _value => super._value as _$LoadingProgress;
 }
 
 /// @nodoc
 
-class _$LoadInProgress implements LoadInProgress {
-  const _$LoadInProgress();
+class _$LoadingProgress implements LoadingProgress {
+  const _$LoadingProgress();
 
   @override
   String toString() {
-    return 'GitRepoState.loadInProgress()';
+    return 'GitRepoState.loadingProgress()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadInProgress);
+        (other.runtimeType == runtimeType && other is _$LoadingProgress);
   }
 
   @override
@@ -550,42 +548,39 @@ class _$LoadInProgress implements LoadInProgress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loadInProgress,
+    required TResult Function() loadingProgress,
     required TResult Function(ApiDataFailure failure) failure,
     required TResult Function(GitRepoFilterEnum currentFilterState,
             List<GitRepoModel> gitRepoModels)
         success,
   }) {
-    return loadInProgress();
+    return loadingProgress();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
+    TResult Function()? loadingProgress,
     TResult Function(ApiDataFailure failure)? failure,
     TResult Function(GitRepoFilterEnum currentFilterState,
             List<GitRepoModel> gitRepoModels)?
         success,
   }) {
-    return loadInProgress?.call();
+    return loadingProgress?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
+    TResult Function()? loadingProgress,
     TResult Function(ApiDataFailure failure)? failure,
     TResult Function(GitRepoFilterEnum currentFilterState,
             List<GitRepoModel> gitRepoModels)?
         success,
     required TResult orElse(),
   }) {
-    if (loadInProgress != null) {
-      return loadInProgress();
+    if (loadingProgress != null) {
+      return loadingProgress();
     }
     return orElse();
   }
@@ -593,43 +588,40 @@ class _$LoadInProgress implements LoadInProgress {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(LoadInProgress value) loadInProgress,
+    required TResult Function(LoadingProgress value) loadingProgress,
     required TResult Function(Failure value) failure,
     required TResult Function(Success value) success,
   }) {
-    return loadInProgress(this);
+    return loadingProgress(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(LoadInProgress value)? loadInProgress,
+    TResult Function(LoadingProgress value)? loadingProgress,
     TResult Function(Failure value)? failure,
     TResult Function(Success value)? success,
   }) {
-    return loadInProgress?.call(this);
+    return loadingProgress?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(LoadInProgress value)? loadInProgress,
+    TResult Function(LoadingProgress value)? loadingProgress,
     TResult Function(Failure value)? failure,
     TResult Function(Success value)? success,
     required TResult orElse(),
   }) {
-    if (loadInProgress != null) {
-      return loadInProgress(this);
+    if (loadingProgress != null) {
+      return loadingProgress(this);
     }
     return orElse();
   }
 }
 
-abstract class LoadInProgress implements GitRepoState {
-  const factory LoadInProgress() = _$LoadInProgress;
+abstract class LoadingProgress implements GitRepoState {
+  const factory LoadingProgress() = _$LoadingProgress;
 }
 
 /// @nodoc
@@ -703,8 +695,7 @@ class _$Failure implements Failure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loadInProgress,
+    required TResult Function() loadingProgress,
     required TResult Function(ApiDataFailure failure) failure,
     required TResult Function(GitRepoFilterEnum currentFilterState,
             List<GitRepoModel> gitRepoModels)
@@ -716,8 +707,7 @@ class _$Failure implements Failure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
+    TResult Function()? loadingProgress,
     TResult Function(ApiDataFailure failure)? failure,
     TResult Function(GitRepoFilterEnum currentFilterState,
             List<GitRepoModel> gitRepoModels)?
@@ -729,8 +719,7 @@ class _$Failure implements Failure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
+    TResult Function()? loadingProgress,
     TResult Function(ApiDataFailure failure)? failure,
     TResult Function(GitRepoFilterEnum currentFilterState,
             List<GitRepoModel> gitRepoModels)?
@@ -746,8 +735,7 @@ class _$Failure implements Failure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(LoadInProgress value) loadInProgress,
+    required TResult Function(LoadingProgress value) loadingProgress,
     required TResult Function(Failure value) failure,
     required TResult Function(Success value) success,
   }) {
@@ -757,8 +745,7 @@ class _$Failure implements Failure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(LoadInProgress value)? loadInProgress,
+    TResult Function(LoadingProgress value)? loadingProgress,
     TResult Function(Failure value)? failure,
     TResult Function(Success value)? success,
   }) {
@@ -768,8 +755,7 @@ class _$Failure implements Failure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(LoadInProgress value)? loadInProgress,
+    TResult Function(LoadingProgress value)? loadingProgress,
     TResult Function(Failure value)? failure,
     TResult Function(Success value)? success,
     required TResult orElse(),
@@ -871,8 +857,7 @@ class _$Success implements Success {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loadInProgress,
+    required TResult Function() loadingProgress,
     required TResult Function(ApiDataFailure failure) failure,
     required TResult Function(GitRepoFilterEnum currentFilterState,
             List<GitRepoModel> gitRepoModels)
@@ -884,8 +869,7 @@ class _$Success implements Success {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
+    TResult Function()? loadingProgress,
     TResult Function(ApiDataFailure failure)? failure,
     TResult Function(GitRepoFilterEnum currentFilterState,
             List<GitRepoModel> gitRepoModels)?
@@ -897,8 +881,7 @@ class _$Success implements Success {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loadInProgress,
+    TResult Function()? loadingProgress,
     TResult Function(ApiDataFailure failure)? failure,
     TResult Function(GitRepoFilterEnum currentFilterState,
             List<GitRepoModel> gitRepoModels)?
@@ -914,8 +897,7 @@ class _$Success implements Success {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Initial value) initial,
-    required TResult Function(LoadInProgress value) loadInProgress,
+    required TResult Function(LoadingProgress value) loadingProgress,
     required TResult Function(Failure value) failure,
     required TResult Function(Success value) success,
   }) {
@@ -925,8 +907,7 @@ class _$Success implements Success {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(LoadInProgress value)? loadInProgress,
+    TResult Function(LoadingProgress value)? loadingProgress,
     TResult Function(Failure value)? failure,
     TResult Function(Success value)? success,
   }) {
@@ -936,8 +917,7 @@ class _$Success implements Success {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Initial value)? initial,
-    TResult Function(LoadInProgress value)? loadInProgress,
+    TResult Function(LoadingProgress value)? loadingProgress,
     TResult Function(Failure value)? failure,
     TResult Function(Success value)? success,
     required TResult orElse(),

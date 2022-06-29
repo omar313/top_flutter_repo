@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:top_flutter_repo/application/git_repo/git_repo_bloc.dart';
 import 'package:top_flutter_repo/domain/core/app_date_time_util.dart';
 import 'package:top_flutter_repo/domain/git_repo/i_git_repo_model_repository.dart';
 import 'package:top_flutter_repo/infrastructure/core/api_end_point.dart';
@@ -47,4 +48,7 @@ void registerGitRepoModule() {
 
   di.registerLazySingleton<IGitRepoModelRepository>(() =>
       GitRepoModelRepository(localDataSource: di(), remoteDataSource: di()));
+
+  ///bloc
+  di.registerFactory(() => GitRepoBloc(repository: di()));
 }

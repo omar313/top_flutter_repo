@@ -28,7 +28,6 @@ class GitRepoModelRepository implements IGitRepoModelRepository {
     if (localData.isLeft()) {
       final remoteData = await remoteDataSource.getRemoteGitRepoModelData(
           filterEnum: filterEnum);
-
     return  remoteData.fold((failure) => left(failure), (tuple) {
         ///cache data
         localDataSource.cacheGitRepoModelData(tuple.tail, filterEnum);

@@ -761,13 +761,14 @@ class GitRepoRawModel {
     return map;
   }
 
-  GitRepoModel toDomain(AppDateTimeUtils dateTimeUtils) =>
-      GitRepoModel(userName: owner?.login,
-          repoName: name,
-          userImageUrl: owner?.avatarUrl,
-          description: description,
-          lastUpdateTime: dateTimeUtils.formatDateString(updatedAt),
-          updateTimeShortV: null);
+  GitRepoModel toDomain(AppDateTimeUtils dateTimeUtils) => GitRepoModel(
+      userName: owner?.login,
+      repoName: name,
+      userImageUrl: owner?.avatarUrl,
+      description: description,
+      lastUpdateTime: dateTimeUtils.formatDateString(updatedAt),
+      updateTimeShortV: null,
+      totalStars: watchers);
 }
 
 class Owner {
