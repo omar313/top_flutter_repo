@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:top_flutter_repo/domain/core/strings.dart';
 
 class AppDateTimeUtils{
  final  _serverDateFormat = DateFormat("yyyy-MM-dd'T'hh:mm:ss'Z'");
@@ -11,7 +12,7 @@ class AppDateTimeUtils{
   DateTime? _getDateTimeFromString(String dateText){
     try{
       return _serverDateFormat.parse(dateText);
-    } on FormatException catch(e){
+    } on FormatException catch(_){
       return null;
     }
   }
@@ -28,10 +29,10 @@ class AppDateTimeUtils{
      }
   }
 
-  bool isCachePeriodExceed(int timeStamp, {int exceedTimeInMin = 30}){
+  bool isCachePeriodExceed(int timeStamp, {int exceedTimeInMin = kCacheTime}){
     final currentTimeStamp = DateTime.now().millisecondsSinceEpoch;
     int differenceInMills = currentTimeStamp - timeStamp;
-    int differenceInMin = (differenceInMills / 1000 / 60).ceil();
+    int differenceInMin = (differenceInMills / 1000 / 60).floor();
     return differenceInMin >= exceedTimeInMin;
   }
 }

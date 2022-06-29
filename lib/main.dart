@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:top_flutter_repo/domain/git_repo/git_repo_filter_enum.dart';
+import 'package:top_flutter_repo/domain/git_repo/i_git_repo_model_repository.dart';
 import 'injection_container.dart' as DI;
+import 'injection_container.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await DI.init();
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
 
   // This widget is the root of your application.
   @override
@@ -42,6 +47,20 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
+  @override
+  void initState() {
+
+    super.initState();
+    test();
+
+
+  }
+  Future<void> test() async{
+    final data = await di<IGitRepoModelRepository>().getGitRepoModelData(filterEnum: GitRepoFilterEnum.none);
+    data.fold((l) => print(l) , (r) => print(r.length));
+  }
+
 
   void _incrementCounter() {
     setState(() {

@@ -12,35 +12,39 @@ import 'infrastructure/git_repo/git_repo_model_repository.dart';
 final di = GetIt.instance;
 
 Future<void> init() async {
-  registerPrimaryInstance();
+  await registerPrimaryInstance();
+  registerGitRepoModule();
 }
 
-void registerPrimaryInstance() {
+Future<void> registerPrimaryInstance() async {
+  await registerSharedPreferences();
   registerDio();
-
-  /// SharedPreference
-  di.registerLazySingletonAsync(() => SharedPreferences.getInstance());
 
   ///date time utils
   di.registerLazySingleton(() => AppDateTimeUtils());
+}
+
+Future<void> registerSharedPreferences() async {
+  final sharedPreferences = await SharedPreferences.getInstance();
+  di.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
 }
 
 void registerDio() {
   final dio = Dio(BaseOptions(
       baseUrl: kBaseUrl,
       responseType: ResponseType.plain,
-      connectTimeout: 15 * 1000,
-      receiveTimeout: 15 * 1000));
+      connectTimeout: 5 * 1000,
+      receiveTimeout: 5 * 1000));
   di.registerLazySingleton<Dio>(() => dio);
 }
 
 void registerGitRepoModule() {
   ///Repositories
   di.registerLazySingleton<IGitRepoModelLocalDataSource>(() =>
-  GitRepoModelLocalDataSource(preferences: di(), appDateTimeUtils: di()));
+      GitRepoModelLocalDataSource(preferences: di(), appDateTimeUtils: di()));
 
-  di.registerLazySingleton<IGitRepoModelRemoteDataSource>(() =>
-      GitRepoModelRemoteDataSource(di()));
+  di.registerLazySingleton<IGitRepoModelRemoteDataSource>(
+      () => GitRepoModelRemoteDataSource(di()));
 
   di.registerLazySingleton<IGitRepoModelRepository>(() =>
       GitRepoModelRepository(localDataSource: di(), remoteDataSource: di()));

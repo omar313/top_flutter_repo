@@ -125,7 +125,6 @@ class GitRepoRawModel {
     bool? archived,
     bool? disabled,
     int? openIssuesCount,
-    String? license,
     bool? allowForking,
     bool? isTemplate,
     String? visibility,
@@ -203,7 +202,6 @@ class GitRepoRawModel {
     _archived = archived;
     _disabled = disabled;
     _openIssuesCount = openIssuesCount;
-    _license = license;
     _allowForking = allowForking;
     _isTemplate = isTemplate;
     _visibility = visibility;
@@ -283,7 +281,6 @@ class GitRepoRawModel {
     _archived = json['archived'];
     _disabled = json['disabled'];
     _openIssuesCount = json['open_issues_count'];
-    _license = json['license'];
     _allowForking = json['allow_forking'];
     _isTemplate = json['is_template'];
     _visibility = json['visibility'];
@@ -362,7 +359,6 @@ class GitRepoRawModel {
   bool? _archived;
   bool? _disabled;
   int? _openIssuesCount;
-  String? _license;
   bool? _allowForking;
   bool? _isTemplate;
   String? _visibility;
@@ -441,7 +437,6 @@ class GitRepoRawModel {
     bool? archived,
     bool? disabled,
     int? openIssuesCount,
-    String? license,
     bool? allowForking,
     bool? isTemplate,
     List<String?>? topics,
@@ -521,7 +516,6 @@ class GitRepoRawModel {
         archived: archived ?? _archived,
         disabled: disabled ?? _disabled,
         openIssuesCount: openIssuesCount ?? _openIssuesCount,
-        license: license ?? _license,
         allowForking: allowForking ?? _allowForking,
         isTemplate: isTemplate ?? _isTemplate,
         visibility: visibility ?? _visibility,
@@ -668,8 +662,6 @@ class GitRepoRawModel {
 
   int? get openIssuesCount => _openIssuesCount;
 
-  String? get license => _license;
-
   bool? get allowForking => _allowForking;
 
   bool? get isTemplate => _isTemplate;
@@ -758,7 +750,6 @@ class GitRepoRawModel {
     map['archived'] = _archived;
     map['disabled'] = _disabled;
     map['open_issues_count'] = _openIssuesCount;
-    map['license'] = _license;
     map['allow_forking'] = _allowForking;
     map['is_template'] = _isTemplate;
     map['visibility'] = _visibility;

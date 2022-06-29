@@ -22,8 +22,12 @@ class GitRepoModelRemoteDataSource implements IGitRepoModelRemoteDataSource {
   Future<Either<ApiDataFailure, Tuple2<List<GitRepoModel>, String>>>
       getRemoteGitRepoModelData({required GitRepoFilterEnum filterEnum}) async {
     try {
+      final queryParams = {
+        'q' : 'flutter',
+        'per_page': '50'
+      };
       final response =
-          await dio.get('$kSearchModuleEndPoint/$kRepositoriesEndPoint');
+          await dio.get('$kSearchModuleEndPoint/$kRepositoriesEndPoint', queryParameters: queryParams);
       final result = await compute(parseGitList, response.toString());
       return result.fold(
           (f) => left(f), (list) {
