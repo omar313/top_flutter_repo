@@ -3,8 +3,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'api_failures.freezed.dart';
 
 @freezed
-class ApiFailure with _$ApiFailure {
-  const factory ApiFailure.serverError() = ServerError;
-  const factory ApiFailure.networkError() = NetworkError;
-  const factory ApiFailure.jsonParseError() = JsonParseError;
+class ApiDataFailure with _$ApiDataFailure {
+  const factory ApiDataFailure.serverError() = ServerError;
+  const factory ApiDataFailure.networkError() = NetworkError;
+  const factory ApiDataFailure.jsonParseError() = JsonParseError;
+  const factory ApiDataFailure.invalidCachedData() = InvalidCachedData;
+  const factory ApiDataFailure.noDataFound() = NoDataFound;
 }

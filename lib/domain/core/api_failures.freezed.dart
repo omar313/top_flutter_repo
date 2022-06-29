@@ -15,12 +15,14 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$ApiFailure {
+mixin _$ApiDataFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() jsonParseError,
+    required TResult Function() invalidCachedData,
+    required TResult Function() noDataFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$ApiFailure {
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? jsonParseError,
+    TResult Function()? invalidCachedData,
+    TResult Function()? noDataFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$ApiFailure {
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? jsonParseError,
+    TResult Function()? invalidCachedData,
+    TResult Function()? noDataFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +49,8 @@ mixin _$ApiFailure {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(JsonParseError value) jsonParseError,
+    required TResult Function(InvalidCachedData value) invalidCachedData,
+    required TResult Function(NoDataFound value) noDataFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +58,8 @@ mixin _$ApiFailure {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(JsonParseError value)? jsonParseError,
+    TResult Function(InvalidCachedData value)? invalidCachedData,
+    TResult Function(NoDataFound value)? noDataFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,25 +67,28 @@ mixin _$ApiFailure {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(JsonParseError value)? jsonParseError,
+    TResult Function(InvalidCachedData value)? invalidCachedData,
+    TResult Function(NoDataFound value)? noDataFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ApiFailureCopyWith<$Res> {
-  factory $ApiFailureCopyWith(
-          ApiFailure value, $Res Function(ApiFailure) then) =
-      _$ApiFailureCopyWithImpl<$Res>;
+abstract class $ApiDataFailureCopyWith<$Res> {
+  factory $ApiDataFailureCopyWith(
+          ApiDataFailure value, $Res Function(ApiDataFailure) then) =
+      _$ApiDataFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ApiFailureCopyWithImpl<$Res> implements $ApiFailureCopyWith<$Res> {
-  _$ApiFailureCopyWithImpl(this._value, this._then);
+class _$ApiDataFailureCopyWithImpl<$Res>
+    implements $ApiDataFailureCopyWith<$Res> {
+  _$ApiDataFailureCopyWithImpl(this._value, this._then);
 
-  final ApiFailure _value;
+  final ApiDataFailure _value;
   // ignore: unused_field
-  final $Res Function(ApiFailure) _then;
+  final $Res Function(ApiDataFailure) _then;
 }
 
 /// @nodoc
@@ -86,7 +99,8 @@ abstract class _$$ServerErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ServerErrorCopyWithImpl<$Res> extends _$ApiFailureCopyWithImpl<$Res>
+class __$$ServerErrorCopyWithImpl<$Res>
+    extends _$ApiDataFailureCopyWithImpl<$Res>
     implements _$$ServerErrorCopyWith<$Res> {
   __$$ServerErrorCopyWithImpl(
       _$ServerError _value, $Res Function(_$ServerError) _then)
@@ -103,7 +117,7 @@ class _$ServerError implements ServerError {
 
   @override
   String toString() {
-    return 'ApiFailure.serverError()';
+    return 'ApiDataFailure.serverError()';
   }
 
   @override
@@ -121,6 +135,8 @@ class _$ServerError implements ServerError {
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() jsonParseError,
+    required TResult Function() invalidCachedData,
+    required TResult Function() noDataFound,
   }) {
     return serverError();
   }
@@ -131,6 +147,8 @@ class _$ServerError implements ServerError {
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? jsonParseError,
+    TResult Function()? invalidCachedData,
+    TResult Function()? noDataFound,
   }) {
     return serverError?.call();
   }
@@ -141,6 +159,8 @@ class _$ServerError implements ServerError {
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? jsonParseError,
+    TResult Function()? invalidCachedData,
+    TResult Function()? noDataFound,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -155,6 +175,8 @@ class _$ServerError implements ServerError {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(JsonParseError value) jsonParseError,
+    required TResult Function(InvalidCachedData value) invalidCachedData,
+    required TResult Function(NoDataFound value) noDataFound,
   }) {
     return serverError(this);
   }
@@ -165,6 +187,8 @@ class _$ServerError implements ServerError {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(JsonParseError value)? jsonParseError,
+    TResult Function(InvalidCachedData value)? invalidCachedData,
+    TResult Function(NoDataFound value)? noDataFound,
   }) {
     return serverError?.call(this);
   }
@@ -175,6 +199,8 @@ class _$ServerError implements ServerError {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(JsonParseError value)? jsonParseError,
+    TResult Function(InvalidCachedData value)? invalidCachedData,
+    TResult Function(NoDataFound value)? noDataFound,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -184,7 +210,7 @@ class _$ServerError implements ServerError {
   }
 }
 
-abstract class ServerError implements ApiFailure {
+abstract class ServerError implements ApiDataFailure {
   const factory ServerError() = _$ServerError;
 }
 
@@ -196,7 +222,8 @@ abstract class _$$NetworkErrorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$NetworkErrorCopyWithImpl<$Res> extends _$ApiFailureCopyWithImpl<$Res>
+class __$$NetworkErrorCopyWithImpl<$Res>
+    extends _$ApiDataFailureCopyWithImpl<$Res>
     implements _$$NetworkErrorCopyWith<$Res> {
   __$$NetworkErrorCopyWithImpl(
       _$NetworkError _value, $Res Function(_$NetworkError) _then)
@@ -213,7 +240,7 @@ class _$NetworkError implements NetworkError {
 
   @override
   String toString() {
-    return 'ApiFailure.networkError()';
+    return 'ApiDataFailure.networkError()';
   }
 
   @override
@@ -231,6 +258,8 @@ class _$NetworkError implements NetworkError {
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() jsonParseError,
+    required TResult Function() invalidCachedData,
+    required TResult Function() noDataFound,
   }) {
     return networkError();
   }
@@ -241,6 +270,8 @@ class _$NetworkError implements NetworkError {
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? jsonParseError,
+    TResult Function()? invalidCachedData,
+    TResult Function()? noDataFound,
   }) {
     return networkError?.call();
   }
@@ -251,6 +282,8 @@ class _$NetworkError implements NetworkError {
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? jsonParseError,
+    TResult Function()? invalidCachedData,
+    TResult Function()? noDataFound,
     required TResult orElse(),
   }) {
     if (networkError != null) {
@@ -265,6 +298,8 @@ class _$NetworkError implements NetworkError {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(JsonParseError value) jsonParseError,
+    required TResult Function(InvalidCachedData value) invalidCachedData,
+    required TResult Function(NoDataFound value) noDataFound,
   }) {
     return networkError(this);
   }
@@ -275,6 +310,8 @@ class _$NetworkError implements NetworkError {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(JsonParseError value)? jsonParseError,
+    TResult Function(InvalidCachedData value)? invalidCachedData,
+    TResult Function(NoDataFound value)? noDataFound,
   }) {
     return networkError?.call(this);
   }
@@ -285,6 +322,8 @@ class _$NetworkError implements NetworkError {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(JsonParseError value)? jsonParseError,
+    TResult Function(InvalidCachedData value)? invalidCachedData,
+    TResult Function(NoDataFound value)? noDataFound,
     required TResult orElse(),
   }) {
     if (networkError != null) {
@@ -294,7 +333,7 @@ class _$NetworkError implements NetworkError {
   }
 }
 
-abstract class NetworkError implements ApiFailure {
+abstract class NetworkError implements ApiDataFailure {
   const factory NetworkError() = _$NetworkError;
 }
 
@@ -307,7 +346,7 @@ abstract class _$$JsonParseErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$JsonParseErrorCopyWithImpl<$Res>
-    extends _$ApiFailureCopyWithImpl<$Res>
+    extends _$ApiDataFailureCopyWithImpl<$Res>
     implements _$$JsonParseErrorCopyWith<$Res> {
   __$$JsonParseErrorCopyWithImpl(
       _$JsonParseError _value, $Res Function(_$JsonParseError) _then)
@@ -324,7 +363,7 @@ class _$JsonParseError implements JsonParseError {
 
   @override
   String toString() {
-    return 'ApiFailure.jsonParseError()';
+    return 'ApiDataFailure.jsonParseError()';
   }
 
   @override
@@ -342,6 +381,8 @@ class _$JsonParseError implements JsonParseError {
     required TResult Function() serverError,
     required TResult Function() networkError,
     required TResult Function() jsonParseError,
+    required TResult Function() invalidCachedData,
+    required TResult Function() noDataFound,
   }) {
     return jsonParseError();
   }
@@ -352,6 +393,8 @@ class _$JsonParseError implements JsonParseError {
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? jsonParseError,
+    TResult Function()? invalidCachedData,
+    TResult Function()? noDataFound,
   }) {
     return jsonParseError?.call();
   }
@@ -362,6 +405,8 @@ class _$JsonParseError implements JsonParseError {
     TResult Function()? serverError,
     TResult Function()? networkError,
     TResult Function()? jsonParseError,
+    TResult Function()? invalidCachedData,
+    TResult Function()? noDataFound,
     required TResult orElse(),
   }) {
     if (jsonParseError != null) {
@@ -376,6 +421,8 @@ class _$JsonParseError implements JsonParseError {
     required TResult Function(ServerError value) serverError,
     required TResult Function(NetworkError value) networkError,
     required TResult Function(JsonParseError value) jsonParseError,
+    required TResult Function(InvalidCachedData value) invalidCachedData,
+    required TResult Function(NoDataFound value) noDataFound,
   }) {
     return jsonParseError(this);
   }
@@ -386,6 +433,8 @@ class _$JsonParseError implements JsonParseError {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(JsonParseError value)? jsonParseError,
+    TResult Function(InvalidCachedData value)? invalidCachedData,
+    TResult Function(NoDataFound value)? noDataFound,
   }) {
     return jsonParseError?.call(this);
   }
@@ -396,6 +445,8 @@ class _$JsonParseError implements JsonParseError {
     TResult Function(ServerError value)? serverError,
     TResult Function(NetworkError value)? networkError,
     TResult Function(JsonParseError value)? jsonParseError,
+    TResult Function(InvalidCachedData value)? invalidCachedData,
+    TResult Function(NoDataFound value)? noDataFound,
     required TResult orElse(),
   }) {
     if (jsonParseError != null) {
@@ -405,6 +456,252 @@ class _$JsonParseError implements JsonParseError {
   }
 }
 
-abstract class JsonParseError implements ApiFailure {
+abstract class JsonParseError implements ApiDataFailure {
   const factory JsonParseError() = _$JsonParseError;
+}
+
+/// @nodoc
+abstract class _$$InvalidCachedDataCopyWith<$Res> {
+  factory _$$InvalidCachedDataCopyWith(
+          _$InvalidCachedData value, $Res Function(_$InvalidCachedData) then) =
+      __$$InvalidCachedDataCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InvalidCachedDataCopyWithImpl<$Res>
+    extends _$ApiDataFailureCopyWithImpl<$Res>
+    implements _$$InvalidCachedDataCopyWith<$Res> {
+  __$$InvalidCachedDataCopyWithImpl(
+      _$InvalidCachedData _value, $Res Function(_$InvalidCachedData) _then)
+      : super(_value, (v) => _then(v as _$InvalidCachedData));
+
+  @override
+  _$InvalidCachedData get _value => super._value as _$InvalidCachedData;
+}
+
+/// @nodoc
+
+class _$InvalidCachedData implements InvalidCachedData {
+  const _$InvalidCachedData();
+
+  @override
+  String toString() {
+    return 'ApiDataFailure.invalidCachedData()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InvalidCachedData);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() networkError,
+    required TResult Function() jsonParseError,
+    required TResult Function() invalidCachedData,
+    required TResult Function() noDataFound,
+  }) {
+    return invalidCachedData();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? networkError,
+    TResult Function()? jsonParseError,
+    TResult Function()? invalidCachedData,
+    TResult Function()? noDataFound,
+  }) {
+    return invalidCachedData?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? networkError,
+    TResult Function()? jsonParseError,
+    TResult Function()? invalidCachedData,
+    TResult Function()? noDataFound,
+    required TResult orElse(),
+  }) {
+    if (invalidCachedData != null) {
+      return invalidCachedData();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(NetworkError value) networkError,
+    required TResult Function(JsonParseError value) jsonParseError,
+    required TResult Function(InvalidCachedData value) invalidCachedData,
+    required TResult Function(NoDataFound value) noDataFound,
+  }) {
+    return invalidCachedData(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NetworkError value)? networkError,
+    TResult Function(JsonParseError value)? jsonParseError,
+    TResult Function(InvalidCachedData value)? invalidCachedData,
+    TResult Function(NoDataFound value)? noDataFound,
+  }) {
+    return invalidCachedData?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NetworkError value)? networkError,
+    TResult Function(JsonParseError value)? jsonParseError,
+    TResult Function(InvalidCachedData value)? invalidCachedData,
+    TResult Function(NoDataFound value)? noDataFound,
+    required TResult orElse(),
+  }) {
+    if (invalidCachedData != null) {
+      return invalidCachedData(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidCachedData implements ApiDataFailure {
+  const factory InvalidCachedData() = _$InvalidCachedData;
+}
+
+/// @nodoc
+abstract class _$$NoDataFoundCopyWith<$Res> {
+  factory _$$NoDataFoundCopyWith(
+          _$NoDataFound value, $Res Function(_$NoDataFound) then) =
+      __$$NoDataFoundCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NoDataFoundCopyWithImpl<$Res>
+    extends _$ApiDataFailureCopyWithImpl<$Res>
+    implements _$$NoDataFoundCopyWith<$Res> {
+  __$$NoDataFoundCopyWithImpl(
+      _$NoDataFound _value, $Res Function(_$NoDataFound) _then)
+      : super(_value, (v) => _then(v as _$NoDataFound));
+
+  @override
+  _$NoDataFound get _value => super._value as _$NoDataFound;
+}
+
+/// @nodoc
+
+class _$NoDataFound implements NoDataFound {
+  const _$NoDataFound();
+
+  @override
+  String toString() {
+    return 'ApiDataFailure.noDataFound()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoDataFound);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() networkError,
+    required TResult Function() jsonParseError,
+    required TResult Function() invalidCachedData,
+    required TResult Function() noDataFound,
+  }) {
+    return noDataFound();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? networkError,
+    TResult Function()? jsonParseError,
+    TResult Function()? invalidCachedData,
+    TResult Function()? noDataFound,
+  }) {
+    return noDataFound?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? networkError,
+    TResult Function()? jsonParseError,
+    TResult Function()? invalidCachedData,
+    TResult Function()? noDataFound,
+    required TResult orElse(),
+  }) {
+    if (noDataFound != null) {
+      return noDataFound();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(NetworkError value) networkError,
+    required TResult Function(JsonParseError value) jsonParseError,
+    required TResult Function(InvalidCachedData value) invalidCachedData,
+    required TResult Function(NoDataFound value) noDataFound,
+  }) {
+    return noDataFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NetworkError value)? networkError,
+    TResult Function(JsonParseError value)? jsonParseError,
+    TResult Function(InvalidCachedData value)? invalidCachedData,
+    TResult Function(NoDataFound value)? noDataFound,
+  }) {
+    return noDataFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(NetworkError value)? networkError,
+    TResult Function(JsonParseError value)? jsonParseError,
+    TResult Function(InvalidCachedData value)? invalidCachedData,
+    TResult Function(NoDataFound value)? noDataFound,
+    required TResult orElse(),
+  }) {
+    if (noDataFound != null) {
+      return noDataFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoDataFound implements ApiDataFailure {
+  const factory NoDataFound() = _$NoDataFound;
 }

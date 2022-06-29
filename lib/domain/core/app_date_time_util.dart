@@ -28,7 +28,7 @@ class AppDateTimeUtils{
      }
   }
 
-  bool? isCachePeriodExceed(int timeStamp, {int exceedTimeInMin = 30}){
+  bool isCachePeriodExceed(int timeStamp, {int exceedTimeInMin = 30}){
     final currentTimeStamp = DateTime.now().millisecondsSinceEpoch;
     int differenceInMills = currentTimeStamp - timeStamp;
     int differenceInMin = (differenceInMills / 1000 / 60).ceil();
