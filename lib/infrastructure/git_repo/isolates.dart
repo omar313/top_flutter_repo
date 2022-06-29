@@ -10,7 +10,7 @@ Future<Either<ApiDataFailure, List<GitRepoModel>>> parseGitList(
     String jsonText)  async{
   try {
     /// special note: GetIT is not working inside isolate
-    /// solution: https://github.com/fluttercommunity/get_it/issues/165
+    /// todo: https://github.com/fluttercommunity/get_it/issues/165
     final dateTimeUtils = AppDateTimeUtils();
     final jsonObj = json.decode(jsonText);
     final gitRepoRawList = GitRepoRawData.fromJson(jsonObj).items;
