@@ -26,6 +26,9 @@ class GitRepoModelRemoteDataSource implements IGitRepoModelRemoteDataSource {
         'q' : 'flutter',
         'per_page': '50'
       };
+      if(filterEnum != GitRepoFilterEnum.none){
+        queryParams['sort'] = filterEnum.apiQueryKey;
+      }
       final response =
           await dio.get('$kSearchModuleEndPoint/$kRepositoriesEndPoint', queryParameters: queryParams);
       final result = await compute(parseGitList, response.toString());

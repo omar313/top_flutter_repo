@@ -1,2 +1,2 @@
-const kCacheTime = 1;
+const kCacheTime = 30;
 const kCurrentFilterStateIndexKey = 'currentStateIndexKey';

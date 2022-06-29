@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   }
   Future<void> test() async{
-    final data = await di<IGitRepoModelRepository>().getGitRepoModelData(filterEnum: GitRepoFilterEnum.none);
+    final data = await di<IGitRepoModelRepository>().getGitRepoModelData(filterEnum: GitRepoFilterEnum.lastUpdate);
     data.fold((l) => print(l) , (r) => print(r.length));
   }
 
