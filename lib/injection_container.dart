@@ -19,7 +19,6 @@ Future<void> init() async {
 Future<void> registerPrimaryInstance() async {
   await registerSharedPreferences();
   registerDio();
-
   ///date time utils
   di.registerLazySingleton(() => AppDateTimeUtils());
 }
