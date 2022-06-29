@@ -7,5 +7,4 @@ class ApiFailure with _$ApiFailure {
   const factory ApiFailure.serverError() = ServerError;
   const factory ApiFailure.networkError() = NetworkError;
   const factory ApiFailure.jsonParseError() = JsonParseError;
-
 }

@@ -17,7 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CachedModel {
   int get currentTimestamp => throw _privateConstructorUsedError;
-  String get jsonString => throw _privateConstructorUsedError;
+  Either<ApiFailure, List<GitRepoModel>> get gitRepoModels =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CachedModelCopyWith<CachedModel> get copyWith =>
@@ -29,7 +30,9 @@ abstract class $CachedModelCopyWith<$Res> {
   factory $CachedModelCopyWith(
           CachedModel value, $Res Function(CachedModel) then) =
       _$CachedModelCopyWithImpl<$Res>;
-  $Res call({int currentTimestamp, String jsonString});
+  $Res call(
+      {int currentTimestamp,
+      Either<ApiFailure, List<GitRepoModel>> gitRepoModels});
 }
 
 /// @nodoc
@@ -43,17 +46,17 @@ class _$CachedModelCopyWithImpl<$Res> implements $CachedModelCopyWith<$Res> {
   @override
   $Res call({
     Object? currentTimestamp = freezed,
-    Object? jsonString = freezed,
+    Object? gitRepoModels = freezed,
   }) {
     return _then(_value.copyWith(
       currentTimestamp: currentTimestamp == freezed
           ? _value.currentTimestamp
           : currentTimestamp // ignore: cast_nullable_to_non_nullable
               as int,
-      jsonString: jsonString == freezed
-          ? _value.jsonString
-          : jsonString // ignore: cast_nullable_to_non_nullable
-              as String,
+      gitRepoModels: gitRepoModels == freezed
+          ? _value.gitRepoModels
+          : gitRepoModels // ignore: cast_nullable_to_non_nullable
+              as Either<ApiFailure, List<GitRepoModel>>,
     ));
   }
 }
@@ -65,7 +68,9 @@ abstract class _$$_CacheModelCopyWith<$Res>
           _$_CacheModel value, $Res Function(_$_CacheModel) then) =
       __$$_CacheModelCopyWithImpl<$Res>;
   @override
-  $Res call({int currentTimestamp, String jsonString});
+  $Res call(
+      {int currentTimestamp,
+      Either<ApiFailure, List<GitRepoModel>> gitRepoModels});
 }
 
 /// @nodoc
@@ -81,17 +86,17 @@ class __$$_CacheModelCopyWithImpl<$Res> extends _$CachedModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? currentTimestamp = freezed,
-    Object? jsonString = freezed,
+    Object? gitRepoModels = freezed,
   }) {
     return _then(_$_CacheModel(
       currentTimestamp: currentTimestamp == freezed
           ? _value.currentTimestamp
           : currentTimestamp // ignore: cast_nullable_to_non_nullable
               as int,
-      jsonString: jsonString == freezed
-          ? _value.jsonString
-          : jsonString // ignore: cast_nullable_to_non_nullable
-              as String,
+      gitRepoModels: gitRepoModels == freezed
+          ? _value.gitRepoModels
+          : gitRepoModels // ignore: cast_nullable_to_non_nullable
+              as Either<ApiFailure, List<GitRepoModel>>,
     ));
   }
 }
@@ -100,16 +105,16 @@ class __$$_CacheModelCopyWithImpl<$Res> extends _$CachedModelCopyWithImpl<$Res>
 
 class _$_CacheModel implements _CacheModel {
   const _$_CacheModel(
-      {required this.currentTimestamp, required this.jsonString});
+      {required this.currentTimestamp, required this.gitRepoModels});
 
   @override
   final int currentTimestamp;
   @override
-  final String jsonString;
+  final Either<ApiFailure, List<GitRepoModel>> gitRepoModels;
 
   @override
   String toString() {
-    return 'CachedModel(currentTimestamp: $currentTimestamp, jsonString: $jsonString)';
+    return 'CachedModel(currentTimestamp: $currentTimestamp, gitRepoModels: $gitRepoModels)';
   }
 
   @override
@@ -120,14 +125,14 @@ class _$_CacheModel implements _CacheModel {
             const DeepCollectionEquality()
                 .equals(other.currentTimestamp, currentTimestamp) &&
             const DeepCollectionEquality()
-                .equals(other.jsonString, jsonString));
+                .equals(other.gitRepoModels, gitRepoModels));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(currentTimestamp),
-      const DeepCollectionEquality().hash(jsonString));
+      const DeepCollectionEquality().hash(gitRepoModels));
 
   @JsonKey(ignore: true)
   @override
@@ -138,12 +143,14 @@ class _$_CacheModel implements _CacheModel {
 abstract class _CacheModel implements CachedModel {
   const factory _CacheModel(
       {required final int currentTimestamp,
-      required final String jsonString}) = _$_CacheModel;
+      required final Either<ApiFailure, List<GitRepoModel>>
+          gitRepoModels}) = _$_CacheModel;
 
   @override
   int get currentTimestamp => throw _privateConstructorUsedError;
   @override
-  String get jsonString => throw _privateConstructorUsedError;
+  Either<ApiFailure, List<GitRepoModel>> get gitRepoModels =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_CacheModelCopyWith<_$_CacheModel> get copyWith =>
