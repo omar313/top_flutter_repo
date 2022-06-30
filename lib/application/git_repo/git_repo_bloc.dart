@@ -22,6 +22,9 @@ class GitRepoBloc extends Bloc<GitRepoEvent, GitRepoState> {
     on<GitRepoEvent>(
       (event, emit) async {
         await event.when(loadFilterData: (filterEnum) async {
+          if(state.currentFilter == filterEnum) {
+            return;
+          }
           emit(state.copyWith(
               isLoading: true,
               apiFailureOrSuccess: null,
