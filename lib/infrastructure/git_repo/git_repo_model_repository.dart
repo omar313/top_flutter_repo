@@ -10,7 +10,7 @@ class GitRepoModelRepository implements IGitRepoModelRepository {
   final IGitRepoModelLocalDataSource localDataSource;
   final IGitRepoModelRemoteDataSource remoteDataSource;
 
-  GitRepoModelRepository(
+ const GitRepoModelRepository(
       {required this.localDataSource, required this.remoteDataSource});
 
   @override

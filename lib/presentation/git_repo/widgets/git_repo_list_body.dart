@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:top_flutter_repo/presentation/core/app_api_data_error_widget.dart';
 import 'package:top_flutter_repo/presentation/core/app_loading_widget.dart';
 import 'package:top_flutter_repo/presentation/git_repo/widgets/git_repo_filter_widget.dart';
-import 'package:top_flutter_repo/presentation/git_repo/widgets/git_repo_list_success_widget.dart';
+import 'package:top_flutter_repo/presentation/git_repo/widgets/git_repo_list_widget.dart';
 import '../../../application/git_repo/git_repo_bloc.dart';
 
 class GitRepoListBody extends StatelessWidget {

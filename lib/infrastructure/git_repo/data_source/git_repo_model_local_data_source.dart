@@ -23,7 +23,7 @@ class GitRepoModelLocalDataSource implements IGitRepoModelLocalDataSource {
   final SharedPreferences preferences;
   final AppDateTimeUtils appDateTimeUtils;
 
-  GitRepoModelLocalDataSource(
+ const GitRepoModelLocalDataSource(
       {required this.preferences, required this.appDateTimeUtils});
 
   @override

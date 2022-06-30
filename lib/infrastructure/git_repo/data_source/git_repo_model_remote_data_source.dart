@@ -16,11 +16,12 @@ abstract class IGitRepoModelRemoteDataSource {
 class GitRepoModelRemoteDataSource implements IGitRepoModelRemoteDataSource {
   final Dio dio;
 
-  GitRepoModelRemoteDataSource(this.dio);
+ const GitRepoModelRemoteDataSource(this.dio);
 
   @override
   Future<Either<ApiDataFailure, Tuple2<List<GitRepoModel>, String>>>
       getRemoteGitRepoModelData({required GitRepoFilterEnum filterEnum}) async {
+    print('api hit');
     try {
       final queryParams = {
         'q' : 'flutter',
