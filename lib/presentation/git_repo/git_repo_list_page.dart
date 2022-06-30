@@ -7,7 +7,7 @@ class GitRepoListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Git Repositories'),),
+      appBar: AppBar(title: const Text('Git Repositories'), centerTitle: true,),
       body: const GitRepoListBody(),
 
     );

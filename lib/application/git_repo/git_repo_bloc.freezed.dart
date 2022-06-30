@@ -439,55 +439,13 @@ abstract class Retry implements GitRepoEvent {
 
 /// @nodoc
 mixin _$GitRepoState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loadingProgress,
-    required TResult Function(ApiDataFailure failure) failure,
-    required TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)
-        success,
-  }) =>
+  bool get isLoading => throw _privateConstructorUsedError;
+  GitRepoFilterEnum get currentFilter => throw _privateConstructorUsedError;
+  Either<ApiDataFailure, List<GitRepoModel>>? get apiFailureOrSuccess =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadingProgress,
-    TResult Function(ApiDataFailure failure)? failure,
-    TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)?
-        success,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loadingProgress,
-    TResult Function(ApiDataFailure failure)? failure,
-    TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)?
-        success,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoadingProgress value) loadingProgress,
-    required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoadingProgress value)? loadingProgress,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoadingProgress value)? loadingProgress,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
-    required TResult orElse(),
-  }) =>
+
+  @JsonKey(ignore: true)
+  $GitRepoStateCopyWith<GitRepoState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -496,6 +454,10 @@ abstract class $GitRepoStateCopyWith<$Res> {
   factory $GitRepoStateCopyWith(
           GitRepoState value, $Res Function(GitRepoState) then) =
       _$GitRepoStateCopyWithImpl<$Res>;
+  $Res call(
+      {bool isLoading,
+      GitRepoFilterEnum currentFilter,
+      Either<ApiDataFailure, List<GitRepoModel>>? apiFailureOrSuccess});
 }
 
 /// @nodoc
@@ -505,438 +467,138 @@ class _$GitRepoStateCopyWithImpl<$Res> implements $GitRepoStateCopyWith<$Res> {
   final GitRepoState _value;
   // ignore: unused_field
   final $Res Function(GitRepoState) _then;
-}
-
-/// @nodoc
-abstract class _$$LoadingProgressCopyWith<$Res> {
-  factory _$$LoadingProgressCopyWith(
-          _$LoadingProgress value, $Res Function(_$LoadingProgress) then) =
-      __$$LoadingProgressCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadingProgressCopyWithImpl<$Res>
-    extends _$GitRepoStateCopyWithImpl<$Res>
-    implements _$$LoadingProgressCopyWith<$Res> {
-  __$$LoadingProgressCopyWithImpl(
-      _$LoadingProgress _value, $Res Function(_$LoadingProgress) _then)
-      : super(_value, (v) => _then(v as _$LoadingProgress));
-
-  @override
-  _$LoadingProgress get _value => super._value as _$LoadingProgress;
-}
-
-/// @nodoc
-
-class _$LoadingProgress implements LoadingProgress {
-  const _$LoadingProgress();
-
-  @override
-  String toString() {
-    return 'GitRepoState.loadingProgress()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingProgress);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loadingProgress,
-    required TResult Function(ApiDataFailure failure) failure,
-    required TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)
-        success,
-  }) {
-    return loadingProgress();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadingProgress,
-    TResult Function(ApiDataFailure failure)? failure,
-    TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)?
-        success,
-  }) {
-    return loadingProgress?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loadingProgress,
-    TResult Function(ApiDataFailure failure)? failure,
-    TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)?
-        success,
-    required TResult orElse(),
-  }) {
-    if (loadingProgress != null) {
-      return loadingProgress();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoadingProgress value) loadingProgress,
-    required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
-  }) {
-    return loadingProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoadingProgress value)? loadingProgress,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
-  }) {
-    return loadingProgress?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoadingProgress value)? loadingProgress,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
-    required TResult orElse(),
-  }) {
-    if (loadingProgress != null) {
-      return loadingProgress(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class LoadingProgress implements GitRepoState {
-  const factory LoadingProgress() = _$LoadingProgress;
-}
-
-/// @nodoc
-abstract class _$$FailureCopyWith<$Res> {
-  factory _$$FailureCopyWith(_$Failure value, $Res Function(_$Failure) then) =
-      __$$FailureCopyWithImpl<$Res>;
-  $Res call({ApiDataFailure failure});
-
-  $ApiDataFailureCopyWith<$Res> get failure;
-}
-
-/// @nodoc
-class __$$FailureCopyWithImpl<$Res> extends _$GitRepoStateCopyWithImpl<$Res>
-    implements _$$FailureCopyWith<$Res> {
-  __$$FailureCopyWithImpl(_$Failure _value, $Res Function(_$Failure) _then)
-      : super(_value, (v) => _then(v as _$Failure));
-
-  @override
-  _$Failure get _value => super._value as _$Failure;
 
   @override
   $Res call({
-    Object? failure = freezed,
+    Object? isLoading = freezed,
+    Object? currentFilter = freezed,
+    Object? apiFailureOrSuccess = freezed,
   }) {
-    return _then(_$Failure(
-      failure == freezed
-          ? _value.failure
-          : failure // ignore: cast_nullable_to_non_nullable
-              as ApiDataFailure,
-    ));
-  }
-
-  @override
-  $ApiDataFailureCopyWith<$Res> get failure {
-    return $ApiDataFailureCopyWith<$Res>(_value.failure, (value) {
-      return _then(_value.copyWith(failure: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$Failure implements Failure {
-  const _$Failure(this.failure);
-
-  @override
-  final ApiDataFailure failure;
-
-  @override
-  String toString() {
-    return 'GitRepoState.failure(failure: $failure)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$Failure &&
-            const DeepCollectionEquality().equals(other.failure, failure));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(failure));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$FailureCopyWith<_$Failure> get copyWith =>
-      __$$FailureCopyWithImpl<_$Failure>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loadingProgress,
-    required TResult Function(ApiDataFailure failure) failure,
-    required TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)
-        success,
-  }) {
-    return failure(this.failure);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadingProgress,
-    TResult Function(ApiDataFailure failure)? failure,
-    TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)?
-        success,
-  }) {
-    return failure?.call(this.failure);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loadingProgress,
-    TResult Function(ApiDataFailure failure)? failure,
-    TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)?
-        success,
-    required TResult orElse(),
-  }) {
-    if (failure != null) {
-      return failure(this.failure);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoadingProgress value) loadingProgress,
-    required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
-  }) {
-    return failure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoadingProgress value)? loadingProgress,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
-  }) {
-    return failure?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoadingProgress value)? loadingProgress,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
-    required TResult orElse(),
-  }) {
-    if (failure != null) {
-      return failure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Failure implements GitRepoState {
-  const factory Failure(final ApiDataFailure failure) = _$Failure;
-
-  ApiDataFailure get failure => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$$FailureCopyWith<_$Failure> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SuccessCopyWith<$Res> {
-  factory _$$SuccessCopyWith(_$Success value, $Res Function(_$Success) then) =
-      __$$SuccessCopyWithImpl<$Res>;
-  $Res call(
-      {GitRepoFilterEnum currentFilterState, List<GitRepoModel> gitRepoModels});
-}
-
-/// @nodoc
-class __$$SuccessCopyWithImpl<$Res> extends _$GitRepoStateCopyWithImpl<$Res>
-    implements _$$SuccessCopyWith<$Res> {
-  __$$SuccessCopyWithImpl(_$Success _value, $Res Function(_$Success) _then)
-      : super(_value, (v) => _then(v as _$Success));
-
-  @override
-  _$Success get _value => super._value as _$Success;
-
-  @override
-  $Res call({
-    Object? currentFilterState = freezed,
-    Object? gitRepoModels = freezed,
-  }) {
-    return _then(_$Success(
-      currentFilterState == freezed
-          ? _value.currentFilterState
-          : currentFilterState // ignore: cast_nullable_to_non_nullable
+    return _then(_value.copyWith(
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentFilter: currentFilter == freezed
+          ? _value.currentFilter
+          : currentFilter // ignore: cast_nullable_to_non_nullable
               as GitRepoFilterEnum,
-      gitRepoModels == freezed
-          ? _value._gitRepoModels
-          : gitRepoModels // ignore: cast_nullable_to_non_nullable
-              as List<GitRepoModel>,
+      apiFailureOrSuccess: apiFailureOrSuccess == freezed
+          ? _value.apiFailureOrSuccess
+          : apiFailureOrSuccess // ignore: cast_nullable_to_non_nullable
+              as Either<ApiDataFailure, List<GitRepoModel>>?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_GitRepoStateCopyWith<$Res>
+    implements $GitRepoStateCopyWith<$Res> {
+  factory _$$_GitRepoStateCopyWith(
+          _$_GitRepoState value, $Res Function(_$_GitRepoState) then) =
+      __$$_GitRepoStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {bool isLoading,
+      GitRepoFilterEnum currentFilter,
+      Either<ApiDataFailure, List<GitRepoModel>>? apiFailureOrSuccess});
+}
+
+/// @nodoc
+class __$$_GitRepoStateCopyWithImpl<$Res>
+    extends _$GitRepoStateCopyWithImpl<$Res>
+    implements _$$_GitRepoStateCopyWith<$Res> {
+  __$$_GitRepoStateCopyWithImpl(
+      _$_GitRepoState _value, $Res Function(_$_GitRepoState) _then)
+      : super(_value, (v) => _then(v as _$_GitRepoState));
+
+  @override
+  _$_GitRepoState get _value => super._value as _$_GitRepoState;
+
+  @override
+  $Res call({
+    Object? isLoading = freezed,
+    Object? currentFilter = freezed,
+    Object? apiFailureOrSuccess = freezed,
+  }) {
+    return _then(_$_GitRepoState(
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      currentFilter: currentFilter == freezed
+          ? _value.currentFilter
+          : currentFilter // ignore: cast_nullable_to_non_nullable
+              as GitRepoFilterEnum,
+      apiFailureOrSuccess: apiFailureOrSuccess == freezed
+          ? _value.apiFailureOrSuccess
+          : apiFailureOrSuccess // ignore: cast_nullable_to_non_nullable
+              as Either<ApiDataFailure, List<GitRepoModel>>?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$Success implements Success {
-  const _$Success(
-      this.currentFilterState, final List<GitRepoModel> gitRepoModels)
-      : _gitRepoModels = gitRepoModels;
+class _$_GitRepoState implements _GitRepoState {
+  const _$_GitRepoState(
+      {required this.isLoading,
+      required this.currentFilter,
+      required this.apiFailureOrSuccess});
 
   @override
-  final GitRepoFilterEnum currentFilterState;
-  final List<GitRepoModel> _gitRepoModels;
+  final bool isLoading;
   @override
-  List<GitRepoModel> get gitRepoModels {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_gitRepoModels);
-  }
+  final GitRepoFilterEnum currentFilter;
+  @override
+  final Either<ApiDataFailure, List<GitRepoModel>>? apiFailureOrSuccess;
 
   @override
   String toString() {
-    return 'GitRepoState.success(currentFilterState: $currentFilterState, gitRepoModels: $gitRepoModels)';
+    return 'GitRepoState(isLoading: $isLoading, currentFilter: $currentFilter, apiFailureOrSuccess: $apiFailureOrSuccess)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Success &&
+            other is _$_GitRepoState &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
-                .equals(other.currentFilterState, currentFilterState) &&
+                .equals(other.currentFilter, currentFilter) &&
             const DeepCollectionEquality()
-                .equals(other._gitRepoModels, _gitRepoModels));
+                .equals(other.apiFailureOrSuccess, apiFailureOrSuccess));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(currentFilterState),
-      const DeepCollectionEquality().hash(_gitRepoModels));
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(currentFilter),
+      const DeepCollectionEquality().hash(apiFailureOrSuccess));
 
   @JsonKey(ignore: true)
   @override
-  _$$SuccessCopyWith<_$Success> get copyWith =>
-      __$$SuccessCopyWithImpl<_$Success>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loadingProgress,
-    required TResult Function(ApiDataFailure failure) failure,
-    required TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)
-        success,
-  }) {
-    return success(currentFilterState, gitRepoModels);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? loadingProgress,
-    TResult Function(ApiDataFailure failure)? failure,
-    TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)?
-        success,
-  }) {
-    return success?.call(currentFilterState, gitRepoModels);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loadingProgress,
-    TResult Function(ApiDataFailure failure)? failure,
-    TResult Function(GitRepoFilterEnum currentFilterState,
-            List<GitRepoModel> gitRepoModels)?
-        success,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(currentFilterState, gitRepoModels);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(LoadingProgress value) loadingProgress,
-    required TResult Function(Failure value) failure,
-    required TResult Function(Success value) success,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(LoadingProgress value)? loadingProgress,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(LoadingProgress value)? loadingProgress,
-    TResult Function(Failure value)? failure,
-    TResult Function(Success value)? success,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
+  _$$_GitRepoStateCopyWith<_$_GitRepoState> get copyWith =>
+      __$$_GitRepoStateCopyWithImpl<_$_GitRepoState>(this, _$identity);
 }
 
-abstract class Success implements GitRepoState {
-  const factory Success(final GitRepoFilterEnum currentFilterState,
-      final List<GitRepoModel> gitRepoModels) = _$Success;
+abstract class _GitRepoState implements GitRepoState {
+  const factory _GitRepoState(
+      {required final bool isLoading,
+      required final GitRepoFilterEnum currentFilter,
+      required final Either<ApiDataFailure, List<GitRepoModel>>?
+          apiFailureOrSuccess}) = _$_GitRepoState;
 
-  GitRepoFilterEnum get currentFilterState =>
+  @override
+  bool get isLoading => throw _privateConstructorUsedError;
+  @override
+  GitRepoFilterEnum get currentFilter => throw _privateConstructorUsedError;
+  @override
+  Either<ApiDataFailure, List<GitRepoModel>>? get apiFailureOrSuccess =>
       throw _privateConstructorUsedError;
-  List<GitRepoModel> get gitRepoModels => throw _privateConstructorUsedError;
+  @override
   @JsonKey(ignore: true)
-  _$$SuccessCopyWith<_$Success> get copyWith =>
+  _$$_GitRepoStateCopyWith<_$_GitRepoState> get copyWith =>
       throw _privateConstructorUsedError;
 }
