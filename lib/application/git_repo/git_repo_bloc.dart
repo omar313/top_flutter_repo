@@ -17,14 +17,16 @@ part 'git_repo_bloc.freezed.dart';
 
 class GitRepoBloc extends Bloc<GitRepoEvent, GitRepoState> {
   final IGitRepoModelRepository repository;
+  late bool _isFirstTime ;
 
   GitRepoBloc({required this.repository}) : super(GitRepoState.initial()) {
     on<GitRepoEvent>(
       (event, emit) async {
         await event.when(loadFilterData: (filterEnum) async {
-          if(state.currentFilter == filterEnum) {
+          if(state.currentFilter == filterEnum && !_isFirstTime) {
             return;
           }
+          _isFirstTime = false;
           emit(state.copyWith(
               isLoading: true,
               apiFailureOrSuccess: null,
@@ -33,9 +35,11 @@ class GitRepoBloc extends Bloc<GitRepoEvent, GitRepoState> {
               await repository.getGitRepoModelData(filterEnum: filterEnum);
           emit(state.copyWith(apiFailureOrSuccess: result, isLoading: false));
         }, getInitialData: () {
+          _isFirstTime = true;
           final initialFilter = repository.getCurrentFilterState();
           add(GitRepoEvent.loadFilterData(initialFilter));
         }, retry: () {
+          _isFirstTime = true;
           add(GitRepoEvent.loadFilterData(state.currentFilter));
         });
       },
