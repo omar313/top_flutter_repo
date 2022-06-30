@@ -12,4 +12,15 @@ I have used the  `FLutter_bloc` for state management and for network calls I hav
 I have divided the  project into 4 layer. Such as application, domain, infrastructure and presentation.
 
 
+## Application
+ State management code such as bloc stay here.
+
+## Presentation
+This layer belongs to all UI code.
+
+## Domain
+Business logic and validation implements here.
+## Infrastructure
+All network and caching mechanism implements here .
+
 
