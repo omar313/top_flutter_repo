@@ -33,8 +33,29 @@ extension GitRepoFilterEnumExtension on GitRepoFilterEnum {
         return 'none-timestamp-key';
     }
   }
+
+  String get label {
+    switch (this) {
+      case GitRepoFilterEnum.star:
+        return 'Most stars';
+      case GitRepoFilterEnum.lastUpdate:
+        return 'Recently updated';
+      default:
+        return 'Best match';
+    }
+  }
 }
 
- GitRepoFilterEnum getEnumFromIndex(int index) => GitRepoFilterEnum.values[index];
+GitRepoFilterEnum getFilterEnumFromIndex(int index) =>
+    GitRepoFilterEnum.values[index];
 
-
+GitRepoFilterEnum getFilterEnumFromLabel(String label) {
+  switch (label) {
+    case 'Most stars':
+      return GitRepoFilterEnum.star;
+    case 'Recently updated':
+      return GitRepoFilterEnum.lastUpdate;
+    default:
+      return GitRepoFilterEnum.none;
+  }
+}

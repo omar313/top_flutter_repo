@@ -3,7 +3,7 @@ import 'package:top_flutter_repo/domain/core/strings.dart';
 
 class AppDateTimeUtils{
  final  _serverDateFormat = DateFormat("yyyy-MM-dd'T'hh:mm:ss'Z'");
-    final  _appDateFormat =  DateFormat('MM-dd-yy hh:mm a') ;
+    final  _appDateFormat =  DateFormat('MM-dd-yy HH:mm') ;
 
   String _getAppDateFormatString(DateTime dateTime){
     return _appDateFormat.format(dateTime);

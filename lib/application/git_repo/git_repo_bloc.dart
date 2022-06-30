@@ -29,6 +29,7 @@ class GitRepoBloc extends Bloc<GitRepoEvent, GitRepoState> {
             (r) => emit(GitRepoState.success(filterEnum, r)));
       }, getInitialData: () {
         final initialFilter = repository.getCurrentFilterState();
+        print(initialFilter.label);
         currentFilterEnum = initialFilter;
         add(GitRepoEvent.loadFilterData(initialFilter));
       }, retry: () {

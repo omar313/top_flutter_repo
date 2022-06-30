@@ -32,12 +32,13 @@ class GitRepoModelLocalDataSource implements IGitRepoModelLocalDataSource {
     await preferences.setInt(
         filterEnum.timestampKey, DateTime.now().millisecondsSinceEpoch);
     await preferences.setString(filterEnum.listStorageKey, jsonText);
-    await preferences.setInt(kCurrentFilterStateIndexKey, filterEnum.index);
+
   }
 
   @override
   Future<Either<ApiDataFailure, List<GitRepoModel>>> getCacheGitRepoModelData(
       {required GitRepoFilterEnum filterEnum}) async {
+    await preferences.setInt(kCurrentFilterStateIndexKey, filterEnum.index);
     final timestamp = preferences.getInt(filterEnum.timestampKey);
     if (timestamp == null) {
       return left(const ApiDataFailure.invalidCachedData());
@@ -62,7 +63,7 @@ class GitRepoModelLocalDataSource implements IGitRepoModelLocalDataSource {
       ///app run first time
       return GitRepoFilterEnum.none;
     } else {
-      return getEnumFromIndex(index);
+      return getFilterEnumFromIndex(index);
     }
   }
 }
